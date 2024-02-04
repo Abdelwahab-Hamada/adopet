@@ -1,0 +1,17 @@
+
+{% extends "pets/base.html" %}
+{% block title %}Pets{% endblock %}
+
+{% block content %}
+    <h2>Pets</h2>
+    <div>
+        {% for pet in pet_list %}
+            <div class="responsive">
+                <div class="gallery">
+                    <img src="{{ pet.photo.url }}">
+                    <a class="desc" href="{% url 'pets:detail' pet.id %}">{{ pet.name }}</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

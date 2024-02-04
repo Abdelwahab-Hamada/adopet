@@ -1,0 +1,10 @@
+
+{% extends "pets/base.html" %}
+
+{% block content %}
+    <h2>{{ pet.name}}</h2>
+    <img src="{{ pet.photo.url }}">
+    <div>
+        <span>Age:</span><span>{{ pet.humanized_age }}</span>
+    </div>
+{% endblock %}
