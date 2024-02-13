@@ -1,0 +1,261 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: overlay;
+}
+.nav-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  gap: 20px;
+}
+nav {
+    margin-top: 10px;
+    border-radius: 50px;
+    position: relative;
+    width: fit-content;
+    padding-right: 40px;
+    background: rgba(0, 0, 0, 0.5);
+  }
+nav a {
+  text-decoration: none;
+  color: white;
+}
+nav .logout-form button {
+  background: none;
+  display: inline-block;
+  padding: 0;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  transition: color 0.5s;
+  margin: 0;
+}
+nav ul li, nav .logout-form {
+  list-style: none;
+  display: inline-block;
+  padding: 15px 35px;
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  transition: color 0.5s;
+}
+nav ul li::after {
+  content: "";
+  background: #f44566;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  opacity: 0;
+  transition: top 0.5s, opacity 0.5s;
+}
+nav ul li:hover {
+  color: #fff;
+}
+nav ul li:hover a, nav ul li:hover .primary-btn {
+  color: #fff;
+}
+
+nav ul li:hover::after {
+  top: 50%;
+  opacity: 1;
+}
+
+.htmx-indicator{
+  display:none;
+}
+.htmx-request .htmx-indicator{
+  display:inline;
+}
+.htmx-request.htmx-indicator{
+  display:inline;
+}
+
+.requests {
+  margin-top: 10px;
+  position: absolute;
+  z-index: 100;
+}
+
+.request-line {
+  margin: 10px;
+  z-index: 100;
+}
+
+.request-text {
+  background-color: #ffffff;
+  color: black;
+  padding: 3px;
+  border-radius: 30px;
+  padding: 5px;
+}
+
+.btn-accept {
+  background-color: green;
+  color: #ffffff;
+  padding: 3px;
+  border-radius: 30px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.btn-reject {
+  background-color: red;
+  color: #ffffff;
+  padding: 3px;
+  border-radius: 30px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.logout-form {
+  background-color: #f44566;
+  border-radius: 30px;
+}
+
+.logout-nav {
+  background: rgba(0, 0, 0, 0);
+}
+
+.form-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.form-div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  border: 2px solid #f44566;
+  border-radius: 30px;
+  box-sizing: border-box;
+}
+
+.form-div form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.form-div form input:not([type="submit"]){
+  flex: 1;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+.form-div form label {
+  width: 7em;
+  margin-right: .5em;
+}
+
+.form-div form div {
+  display: flex;
+}
+
+.form-div form button {
+  background-color: #f44566;
+  border: none;
+  border-radius: 30px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.primary-btn {
+  color: #f44566 ;
+}
+
+.landing {
+  width: 100%;
+  height: auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.landing img {
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+  height: 100%;
+  width: 100%;
+}
+
+.landing .content {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  
+  font-size: 2em;
+  position: absolute;
+  z-index: 10;
+  display: flex
+}
+
+.landing .content .main {
+  align-self: start;
+  color: #f44566;
+  margin: 100px 200px 200px 200px;
+}
+
+.screenshots {
+  display: flex;
+  width: auto;
+  height: 400px;
+  overflow-x: auto;
+  gap: 20px;
+}
+
+.features li{
+  color: #fff;
+  
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f44566;
+  border-radius: 30px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+footer {
+  align-self: end;
+
+}

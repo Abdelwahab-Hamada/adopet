@@ -1,0 +1,75 @@
+.gallery {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 30px 30px;
+  flex-wrap: wrap;
+}
+
+.gallery img {
+  width:100%;
+  height: auto;
+  margin: 4% auto;
+  box-shadow:-3px 5px 15px #000;
+  -webkit-transition: all 0.2s;
+  display: block;
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+  transition: all 100ms ease-out;
+}
+.gallery img:hover {
+  transform: scale(1.04);
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+}
+
+.gallery .img-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.gallery .title {
+  padding-right: 10px;
+  padding-left: 10px;
+  border-radius: 30px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f44566;
+  font-size: 2em;
+  align-self: center;
+  position: absolute;
+  z-index: 10;
+}
+
+.gallery .age {
+  color: #fff;
+  background-color: #f44566;
+  padding: 3px;
+  border-radius: 30px;
+  font-size: 1em;
+  align-self: end;
+  position: absolute;
+  z-index: 10;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.gallery .requested {
+  color: #fff;
+  background-color: #f44566;
+  padding: 3px;
+  border-radius: 30px;
+  font-size: 1em;
+  align-self: end;
+  position: absolute;
+  z-index: 10;
+  opacity: 0;
+}
+
+.gallery .img-container:hover .title {
+  opacity: 0;
+}
+
+.gallery .img-container:hover .age , .gallery .img-container:hover .requested {
+  opacity: 1;
+}

@@ -1,0 +1,3 @@
+*.sqlite3
+media/pets
+__pycache__

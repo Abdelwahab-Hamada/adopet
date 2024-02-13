@@ -55,7 +55,7 @@ ROOT_URLCONF = 'adopet.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/'adopet'/'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,6 +117,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR/'adopet'/'static']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -129,3 +130,7 @@ DEFAULT_PETS_PHOTOS_PATH = 'pets/photos/{uuid}{extension}'
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT= BASE_DIR / 'media'
+
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = "/pet/list/"
+LOGOUT_REDIRECT_URL = "/"  

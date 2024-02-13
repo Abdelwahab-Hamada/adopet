@@ -1,16 +1,26 @@
 
-{% extends "pets/base.html" %}
-{% block title %}Pets{% endblock %}
+{% extends "base.html" %}
+{% load static %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'pets/list.css' %}">
+{% endblock %}
+{% block title %}Adopet-Pets List{% endblock %}
 
 {% block content %}
-    <h2>Pets</h2>
-    <div>
+    <div class="gallery">
         {% for pet in pet_list %}
-            <div class="responsive">
-                <div class="gallery">
-                    <img src="{{ pet.photo.url }}">
-                    <a class="desc" href="{% url 'pets:detail' pet.id %}">{{ pet.name }}</a>
+            <div class="img-container">
+                <img src="{{ pet.photo.url }}" >
+                <div class="title">
+                    {{ pet.name }}
                 </div>
+                {% if pet.state == 'r' or pet.state == 'a' %}
+                    <div class='requested'>{{ pet.get_state_display  }}</div>
+                {% else %}                    
+                    <div id="age-{{ pet.id }}" class="age" hx-post="{% url 'pets:request' pet.id %}" hx-trigger="click" hx-target="#age-{{ pet.id }}" hx-swap="outerHTML">
+                        {{ pet.humanized_age }}
+                    </div>
+                {% endif %}
             </div>
         {% endfor %}
     </div>

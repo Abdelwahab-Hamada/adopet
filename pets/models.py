@@ -21,6 +21,15 @@ class Pet(models.Model):
     photo = models.ImageField(upload_to=path)
     owner = models.ForeignKey(settings.AUTH_USER_MODEL,
                               related_name='pets', on_delete=models.CASCADE)
+    state = models.CharField(
+        max_length=2,
+        blank=False,
+        null=False,
+        choices=(
+            ('r',"Adoption requested"),
+            ('a',"Adoption accepted"),
+        )
+    )
     created_on = models.DateTimeField(auto_now_add=True, editable=False)
 
     def __str__(self):
@@ -43,6 +52,17 @@ class AdoptionRequest(models.Model):
         settings.AUTH_USER_MODEL, related_name='requests', on_delete=models.CASCADE)
     pet = models.ForeignKey(Pet, related_name='requests',
                             on_delete=models.CASCADE)
+    state = models.CharField(
+        max_length=2,
+        blank=False,
+        null=False,
+        choices=(
+            ('p',"Request pending"),
+            ('r',"Request rejected"),
+            ('a',"Request accepted"),
+        ),
+        default="p",
+    )
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -54,3 +74,24 @@ class AdoptionRequest(models.Model):
     @property
     def created_time_ago(self):
         return humanize.naturaltime(timezone.now() - self.created_on)
+    
+    def request_adoption(user, pet):
+        adoption_request = AdoptionRequest(potintialOwner=user,pet_id=pet)
+        adoption_request.save()
+        pet = Pet.objects.get(pk=pet)
+        pet.state = 'r'
+        pet.save()
+
+    def accept_request(pk):
+        adoption_request = AdoptionRequest.objects.get(pk=pk)
+        adoption_request.state = 'a'
+        adoption_request.save()
+        adoption_request.pet.state = 'a'
+        adoption_request.pet.save()
+
+    def reject_request(pk):
+        adoption_request = AdoptionRequest.objects.get(pk=pk)
+        adoption_request.state = 'r'
+        adoption_request.save()
+        adoption_request.pet.state = None
+        adoption_request.pet.save()

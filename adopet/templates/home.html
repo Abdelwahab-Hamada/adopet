@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Adopet - Landing Page{% endblock %}
+
+{% block content %}
+    <div class="landing">
+        <img src="https://source.unsplash.com/2048x1536/?pet">
+        <div class="content">
+            <div class="main">
+                <h1>
+                    <a style=" color: #f44566;" href="{% url 'pets:pet-list' %}">Adopet</a>
+                </h1>
+                <p style="color: #fff; ">It’s a web app that tries to find a new home for homeless or future homeless pets. 
+                </p>
+
+                <div class="screenshots">
+                    <img src="/media/Screenshot0838061.png"/>
+                    <img src="/media/Screenshot0838062.png"/>
+                    <img src="/media/Screenshot0838063.png"/>
+                </div>
+                <div class="features">
+                    <ol>
+                        <li>User can post a pet photo and it's details to find new home.</li>
+                        <li>User can request to adopt a new pet.</li>
+                        <li>User can accept or reject adoption request</li>
+                    </ol>
+                </div>
+                <h1>
+                    About
+                </h1>
+                <div style="color: #fff; ">
+
+                    <p>
+                        What inspired me to create that project?
+                    </p>
+                    <p>
+                        My sister had a cat for awhile one day she discovered that she have an allergy against animal's hair so we decided that moon(cat) should leave our home, so i tried to find a new home for him and i had a lot of deficulties to find a new home at least we found a new home for him but after days that made my sister got worse.
+                        
+                    </p>
+                </div>
+                <footer>
+                    <p style="color: #fff;">
+                        This is a portfolio project for <a href="https://www.holbertonschool.com/">Holberton School</a> & <a href="https://tech.alxafrica.com/egypt?utm_source=google&utm_medium=pmax&utm_campaign=egc_2024q1&utm_term=tofu-applications-tech-lite-eg&utm_content=all&gad_source=1&gclid=Cj0KCQiAw6yuBhDrARIsACf94RWVjOSyn08HkeBJr6XA6fggivm6UBrlyVZR4fla0E705XfsHzL08YMaAjSQEALw_wcB">ALX</a>
+                    </p>
+                    <a href="https://www.linkedin.com/in/abdelwahab-hamada/"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+                    <a href="https://github.com/Abdelwahab-Hamada"><i class="fa fa-github" style="color: #fff" aria-hidden="true"></i></a>
+                    <span>Abdelwahab-Hamada</span>
+                </footer>
+            </div>
+            
+        </div>
+    </div>
+{% endblock %}
