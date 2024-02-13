@@ -135,3 +135,5 @@ MEDIA_ROOT= BASE_DIR / 'media'
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = "/pet/list/"
 LOGOUT_REDIRECT_URL = "/"  
+
+CSRF_TRUSTED_ORIGINS = ['http://52.3.244.177']
